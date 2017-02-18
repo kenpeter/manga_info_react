@@ -16,73 +16,7 @@ class Home extends Component {
     this.props.loadAll();
   }
   
-
-
   /*
-  render() {
-  
-    let rows = this.props.propList;
-    let rows_display;
-    let body_display;
-    
-    if(rows.length > 0) {
-    
-      rows_display = rows.map((val, index)=>{
-      
-        //console.log(val.a);
-      
-        // return need to have bracket, bracket, bracket!!!!!!!!!!!!!!!!!!!!!!!!!!
-        return (
-          <Table.Row key={index}>
-            <Table.Cell>
-              <Icon name='inbox' /> {index}
-            </Table.Cell>
-            
-            <Table.Cell>
-              <Icon name='wifi' /> {val.t}
-            </Table.Cell>
-          
-            <Table.Cell>
-              <Icon name='file' /> {val.h}
-            </Table.Cell>
-          </Table.Row>
-        );
-          
-      });
-  
-      body_display = 
-        <Table.Body>
-          {rows_display}
-        </Table.Body>;
-    }
-    else {
-      body_display = 
-        <Table.Body>
-          <Table.Row>
-            <Table.Cell colSpan='3'>
-              <Icon name='inbox' /> Loading..... (for > 40 seconds)
-            </Table.Cell>
-          </Table.Row>
-        </Table.Body>;
-        
-    }
-  
-    return (
-      <Table celled striped>
-        <Table.Header>
-          <Table.Row>
-            <Table.HeaderCell colSpan='3'>Mangaeden API</Table.HeaderCell>
-          </Table.Row>
-        </Table.Header>
-      
-        { body_display }
-
-      </Table>
-    );
-  }
-  */
-  
-  
   render() {
     let display = '';
   
@@ -134,9 +68,9 @@ class Home extends Component {
       </div>
     );
   }
+  */
   
   
-  /*
   render() {
     let rows = this.props.propList;
     let display = '';
@@ -158,7 +92,7 @@ class Home extends Component {
     
       // display table
       display = 
-        <table>
+        <table className="ui celled striped table">
           <thead>
             <tr>
               <th>#</th>
@@ -183,7 +117,7 @@ class Home extends Component {
       </div>  
     );
   }
-  */
+  
   
 }
 
