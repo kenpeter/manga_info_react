@@ -3,9 +3,6 @@
 // react
 import React, { Component } from 'react';
 
-// import 
-// components, global, menu
-import Menu from './Menu';
 
 // export App
 export default class App extends Component {
@@ -18,7 +15,6 @@ export default class App extends Component {
     // return menu and child
     return (
       <div className='App'>
-        <Menu />
         { children }
       </div>
     );

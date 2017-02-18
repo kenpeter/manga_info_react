@@ -70,3 +70,4 @@ ReactDOM.render(
   </Provider>,
   document.getElementById('app') // eslint-disable-line
 );
+
