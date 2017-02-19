@@ -5,6 +5,9 @@ import { connect } from "react-redux";
 
 import { Grid, Image } from 'semantic-ui-react';
 import ChapterItem from './ChapterItem';
+import { AllHtmlEntities } from 'html-entities';
+
+let entities = new AllHtmlEntities();
 
 class Manga extends Component {
   
@@ -30,15 +33,16 @@ class Manga extends Component {
       let title = manga.title;
       let imgUri = manga.image;
       let description = manga.description;
+      let categories = manga.categories;
       let chapters = manga.chapters;
       
-      /*
+      console.log(categories);
+      
       let chapterItems_display = chapters.map((val, index) => {
         return (
           <ChapterItem key={index} />
         );
       });
-      */
     
       manga_display = 
         <div className='manga'>
@@ -52,7 +56,16 @@ class Manga extends Component {
               <Image src={`https://cdn.mangaeden.com/mangasimg/${imgUri}`} fluid />
             </Grid.Column>
             <Grid.Column width={7}>
-              <Image src='http://semantic-ui.com/images/wireframe/paragraph.png' />
+              <p><strong>Description: </strong></p>
+              <p>{ entities.decode(description) }</p>
+              
+              <p><strong>Category: </strong></p>
+              
+              
+              <p><strong>Chapters: </strong></p>
+              { chapterItems_display }
+              
+              
             </Grid.Column>
             <Grid.Column width={3}>
               <Image src='http://semantic-ui.com/images/wireframe/media-paragraph.png' />
@@ -79,7 +92,7 @@ class Manga extends Component {
 
 function mapStateToProps(state) {
 
-  console.log(state);
+  //console.log(state);
 
   return {
     propLoadingMore: state.chapterLoadAll.loadingMore,
