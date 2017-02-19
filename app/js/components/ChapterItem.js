@@ -14,7 +14,7 @@ class ChapterItem extends Component {
 
     return (
       <div className='chapterItem'>
-        <p>chapter item</p>
+        <p>{ this.props.chapterIndex }, { this.props.chapterId }</p>
       </div>
     );
   }

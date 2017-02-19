@@ -36,14 +36,18 @@ class Manga extends Component {
       let categories = manga.categories;
       let chapters = manga.chapters;
       
-      //console.log(categories);
+      //console.log(chapters);
       
       // https://www.w3schools.com/jsref/jsref_join.asp
       let cat = categories.join(", ");
       
       let chapterItems_display = chapters.map((val, index) => {
         return (
-          <ChapterItem key={index} />
+          <ChapterItem 
+            key={index} 
+            chapterIndex={val[0]}
+            chapterId={val[3]}
+          />
         );
       });
     
@@ -64,10 +68,8 @@ class Manga extends Component {
               
               <p><strong>Category: { cat }</strong></p>
               
-              
               <p><strong>Chapters: </strong></p>
-              { chapterItems_display }
-              
+              { chapterItems_display }  
               
             </Grid.Column>
             <Grid.Column width={3}>
