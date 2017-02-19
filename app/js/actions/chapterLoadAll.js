@@ -22,11 +22,11 @@ export default function chapterLoadAll(mangaId) {
     
     
     utilChapterLoadAll(mangaId).then(function(obj) {
-     
+      
       dispatch({
         type: CHAPTER_LOAD_ALL,
         loadingMore: false,
-        manga: tmpData
+        manga: obj.data
       });
       
     });

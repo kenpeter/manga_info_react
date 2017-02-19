@@ -22,8 +22,8 @@ export default function loadAll() {
     
     utilLoadAll().then(function(obj) {
       
+      // sort
       let tmpData = obj.data.manga;
-      
 			tmpData.sort(function(a, b) {
 			  return b.h - a.h; // switch it, so get descending
 			});
