@@ -82,7 +82,7 @@ class Home extends Component {
           return (
             <tr key={index}>
               <td>{ index }</td>
-              <td>{ val.t }</td>
+              <td><Link to={`/manga/${ val.i }`}>{ val.t }</Link></td>
               <td>{ val.h }</td>
             </tr>
           );

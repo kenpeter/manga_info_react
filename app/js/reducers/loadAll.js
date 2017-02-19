@@ -6,7 +6,7 @@ const initState = {
 };
 
 // able to fire
-export default function loadMore(state = initState, action = {}) {
+export default function loadAll(state = initState, action = {}) {
   switch(action.type) {
   
     case LOAD_ALL:

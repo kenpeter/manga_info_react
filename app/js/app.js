@@ -31,7 +31,7 @@ import rootReducer from "./rootReducer";
 // view app, home, about
 import App from './components/App';
 import Home from './components/Home';
-import About from './components/About';
+import Manga from './components/Manga';
 
 import '../scss/app.scss';
 
@@ -64,7 +64,7 @@ ReactDOM.render(
     <Router history={ history }>
       <Route path='/' component={ App }>
         <IndexRoute component={ Home } />
-        <Route path='about' component={ About } />
+        <Route path='/manga/:mangaId' component={ Manga } />
       </Route>
     </Router>
   </Provider>,

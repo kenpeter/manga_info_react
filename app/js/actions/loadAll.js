@@ -21,18 +21,18 @@ export default function loadAll() {
     
     
     utilLoadAll().then(function(obj) {
-      //console.log("-- start --");
-      //console.log(obj.data.manga);
       
-      // now we got data
-      // http://www.w3schools.com/jsref/jsref_concat_array.asp
-      list = obj.data.manga;
+      let tmpData = obj.data.manga;
       
+			tmpData.sort(function(a, b) {
+			  return b.h - a.h; // switch it, so get descending
+			});
+
       // list is increased.
       dispatch({
         type: LOAD_ALL,
         loadingMore: false,
-        list: list
+        list: tmpData
       });
       
     });
