@@ -36,7 +36,10 @@ class Manga extends Component {
       let categories = manga.categories;
       let chapters = manga.chapters;
       
-      console.log(categories);
+      //console.log(categories);
+      
+      // https://www.w3schools.com/jsref/jsref_join.asp
+      let cat = categories.join(", ");
       
       let chapterItems_display = chapters.map((val, index) => {
         return (
@@ -59,7 +62,7 @@ class Manga extends Component {
               <p><strong>Description: </strong></p>
               <p>{ entities.decode(description) }</p>
               
-              <p><strong>Category: </strong></p>
+              <p><strong>Category: { cat }</strong></p>
               
               
               <p><strong>Chapters: </strong></p>
