@@ -3,6 +3,9 @@ let path = require('path');
 // https://github.com/jantimon/favicons-webpack-plugin
 let FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 
+// better error
+let FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+
 // do html
 let HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -79,7 +82,8 @@ module.exports = {
   
   plugins: [
     HTMLWebpackPluginConfig,
-    new FaviconsWebpackPlugin(__dirname + '/logo.png')
+    new FaviconsWebpackPlugin(__dirname + '/logo.png'),
+    new FriendlyErrorsWebpackPlugin()
   ]
   
 };

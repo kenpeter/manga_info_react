@@ -16,3 +16,11 @@ export function utilChapterLoadAll(mangaId) {
   
   return axios.get(apiUrl);
 }
+
+
+export function utilImgLoadAll(chapterId) {
+  // no https.... no https
+  let apiUrl = "http://www.mangaeden.com/api/chapter/" + chapterId;
+  
+  return axios.get(apiUrl);
+}

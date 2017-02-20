@@ -6,6 +6,8 @@ import { connect } from "react-redux";
 import { Grid, Image } from 'semantic-ui-react';
 import ChapterItem from './ChapterItem';
 import { AllHtmlEntities } from 'html-entities';
+import { List } from 'semantic-ui-react';
+
 
 let entities = new AllHtmlEntities();
 
@@ -25,7 +27,7 @@ class Manga extends Component {
   render() {
     let manga_display = "Loading.....";
       
-    let manga = this.props.propManga;
+    let manga = this.props.propManga;  
      
     // Hak 
     // https://stackoverflow.com/questions/11040472/check-if-object-property-exists-using-a-variable 
@@ -34,12 +36,13 @@ class Manga extends Component {
       let imgUri = manga.image;
       let description = manga.description;
       let categories = manga.categories;
-      let chapters = manga.chapters;
       
-      //console.log(chapters);
+      let chapters = manga.chapters;
+      let mangaId = this.props.params.mangaId;
       
       // https://www.w3schools.com/jsref/jsref_join.asp
       let cat = categories.join(", ");
+      
       
       let chapterItems_display = chapters.map((val, index) => {
         return (
@@ -47,38 +50,51 @@ class Manga extends Component {
             key={index} 
             chapterIndex={val[0]}
             chapterId={val[3]}
+            mangaId={mangaId}
           />
         );
       });
+      
+      
+      let allChapterItems_display = 
+        <List>
+          { chapterItems_display }
+        </List>
     
       manga_display = 
         <div className='manga'>
           <p>&nbsp;</p>
           <Grid>
             <Grid.Column width={1}>
-              
             </Grid.Column>
             
             <Grid.Column width={4}>
               <Image src={`https://cdn.mangaeden.com/mangasimg/${imgUri}`} fluid />
             </Grid.Column>
+            
+            
             <Grid.Column width={7}>
               <p><strong>Description: </strong></p>
               <p>{ entities.decode(description) }</p>
               
-              <p><strong>Category: { cat }</strong></p>
+              <p><strong>Category: </strong></p>
+              <p>{ cat }</p>
               
               <p><strong>Chapters: </strong></p>
-              { chapterItems_display }  
+              { allChapterItems_display }  
               
             </Grid.Column>
+            
+            
             <Grid.Column width={3}>
+              <p><Link to="/">Home</Link></p>
+              
               <Image src='http://semantic-ui.com/images/wireframe/media-paragraph.png' />
             </Grid.Column>
             
             <Grid.Column width={1}>
-              
             </Grid.Column>
+            
           </Grid>
         </div>;
     }

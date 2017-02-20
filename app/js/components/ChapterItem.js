@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import { connect } from "react-redux";
+import { List } from 'semantic-ui-react';
 
 class ChapterItem extends Component {
   
@@ -11,11 +12,20 @@ class ChapterItem extends Component {
   
   render() {
   
+    let chapterIndex = this.props.chapterIndex;
+    let chapterId = this.props.chapterId;
+    let mangaId = this.props.mangaId;
 
     return (
-      <div className='chapterItem'>
-        <p>{ this.props.chapterIndex }, { this.props.chapterId }</p>
-      </div>
+      <List.Item>
+        <List.Icon name='linkify' />
+        <List.Content>
+          <Link to={`/chapter/${chapterId}/${mangaId}`}>
+            Chapter#: { chapterIndex }, { chapterId }
+          </Link>
+        </List.Content>
+      </List.Item>
+    
     );
   }
 }
