@@ -29,12 +29,16 @@ export default function imgLoadAll(chapterId) {
     utilImgLoadAll(chapterId).then(function(obj) {
       
       //test
-      //console.log(obj);
+      let data = obj.data.images;
+      //console.log(data);
+      let tmpData = data.sort(function(a, b) {
+        return a[0] - b[0];
+      });
       
       dispatch({
         type: IMG_LOAD_ALL,
         loadingMore: false,
-        imgs: obj.data // bug?????????????????????????????
+        imgs: tmpData
       });
       
     });

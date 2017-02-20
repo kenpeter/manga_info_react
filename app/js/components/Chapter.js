@@ -41,7 +41,7 @@ class Chapter extends Component {
       //console.log("-test-");
       //console.log(propImgs);
       
-      let imgs_display = propImgs.images.map((val, index) => {
+      let imgs_display = propImgs.map((val, index) => {
         let imgUri = val[1];
         return <Image key={index} src={`https://cdn.mangaeden.com/mangasimg/${imgUri}`} />
       });
@@ -82,7 +82,7 @@ class Chapter extends Component {
 
 function mapStateToProps(state) {
 
-  console.log(state);
+  //console.log(state);
 
   return {
     propLoadingMore: state.imgLoadAll.loadingMore,

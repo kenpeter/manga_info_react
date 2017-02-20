@@ -35,7 +35,7 @@ module.exports = {
   // ./dist/app.js
   output: {
     filename: "app.js",
-    path: __dirname + "/dist",
+    path: __dirname + "/dist"
   },
   
   /*
